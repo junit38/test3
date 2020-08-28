@@ -1,0 +1,144 @@
+<body class="fixed-sn light-blue-skin">
+    <div *ngIf="afAuth.user | async as user">
+
+        <header>
+        
+            <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
+
+                <ul class="nav navbar-nav nav-flex-icons ml-auto">
+
+                    <li class="nav-item mx-2">
+                        <a class="nav-link">
+                            <i class="fas fa-user mx-2"></i> 
+                            <span class="clearfix d-none d-sm-inline-block gray-gradient font-weight-bold">
+                                {{ user.displayName }}
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item mx-2">
+                        <button class="btn btn-outline-danger btn-rounded btn-block z-depth-0 waves-effect"
+                          (click)="logout()">
+                          Sign out
+                        </button>
+                    </li>
+                    
+                </ul>
+
+            </nav>
+    
+        </header>
+
+        <div class="jumbotron text-center z-depth-0 p-4 transparent">
+
+            <div class="row">
+
+                <div class="col-md-2 offset-md-1 my-3">
+
+                    <div class="card card-cascade wider">
+
+                        <div class="view view-cascade overlay">
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg"
+                            alt="Card image cap">
+                            <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+
+                        <div class="card-body card-body-cascade text-center">
+
+                            <h4 class="card-title"><strong>{{ user.displayName }}</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>{{ user.email }}</strong></h5>
+                            <h5 class="blue-text pb-2"><strong>User ID: {{ user.uid }}</strong></h5>
+                            <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam. </p>
+
+                            <!-- Linkedin -->
+                            <a class="px-2 fa-lg li-ic"><i class="fab fa-linkedin-in"></i></a>
+                            <!-- Twitter -->
+                            <a class="px-2 fa-lg tw-ic"><i class="fab fa-twitter"></i></a>
+                            <!-- Dribbble -->
+                            <a class="px-2 fa-lg fb-ic"><i class="fab fa-facebook-f"></i></a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-8 text-md-left ml-3 mt-3">
+
+                    <div class="modal-dialog transparent" style="max-width: 80% !important; margin: 0 auto !important;">
+
+                        <div class="modal-content">
+                            
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">Your cart</h4>
+                            </div>
+                            
+                            <div class="modal-body">
+
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Product name</th>
+                                        <th>Price</th>
+                                        <th>Remove</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Product 1</td>
+                                        <td>100$</td>
+                                        <td><a><i class="fas fa-times"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Product 2</td>
+                                        <td>100$</td>
+                                        <td><a><i class="fas fa-times"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Product 3</td>
+                                        <td>100$</td>
+                                        <td><a><i class="fas fa-times"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Product 4</td>
+                                        <td>100$</td>
+                                        <td><a><i class="fas fa-times"></i></a></td>
+                                    </tr>
+                                    <tr class="total">
+                                        <th scope="row">5</th>
+                                        <td>Total</td>
+                                        <td>400$</td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                            <!--Footer-->
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                            <button class="btn btn-primary">Checkout</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>

@@ -1,0 +1,31 @@
+<div class="support-content">
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)" *ngIf="success !== true" class="mb-4">
+    <div>
+      <label position="floating" color="primary">Full name</label>
+      <input class="form-control" type="text" formControlName="name">
+    </div>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.name">
+        <div class="errors-message" *ngIf="validations_form.get('name').hasError(validation.type) && (validations_form.get('name').dirty || validations_form.get('name').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <div>
+      <label position="floating" color="primary">Support message</label>
+      <textarea class="form-control" rows="5" placeholder="Enter your message here..." formControlName="message"></textarea>
+    </div>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.message">
+        <div class="errors-message" *ngIf="validations_form.get('message').hasError(validation.type) && (validations_form.get('message').dirty || validations_form.get('message').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <button class="btn btn-primary submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Send</button>
+  </form>
+  <div *ngIf="success === true" class="success">
+    <h3>Thanks !</h3>
+    <button class="btn btn-primary bsubmit-btn" expand="block"  (click)="toggleSuccess()">Let an other message</button>
+  </div>
+</div>
